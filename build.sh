@@ -11,6 +11,9 @@ dockerfile=Dockerfile
 initial=$(head -n 1 "$dockerfile" | cut -d: -f2)
 
 for next in ${bases[@]}; do
+    img=$(head -n 1 "$dockerfile" | cut -c 6-)
+    docker pull $img
+
     echo starting $next
     sed -i "1s/:.*/:$next/" "$dockerfile"
 
@@ -26,7 +29,7 @@ for next in ${bases[@]}; do
     echo pushing to $tag
 
     docker tag next $tag
-    # docker push $tag
+    docker push $tag
 done
 
 sed -i '1s/.*/FROM ubuntu:22.04/' "$dockerfile"
