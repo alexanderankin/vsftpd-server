@@ -6,5 +6,6 @@ RUN \
     rm -rf ./var/lib/apt/
 
 COPY vsftpd-custom.conf /etc/
+COPY docker-entrypoint.sh /
 
-ENTRYPOINT vsftpd
+ENTRYPOINT ["/docker-entrypoint.sh"]

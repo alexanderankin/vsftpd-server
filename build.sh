@@ -3,7 +3,6 @@
 bases=(
     20.04
     22.04
-    22.10
     23.04
 )
 
@@ -27,7 +26,7 @@ for next in ${bases[@]}; do
     echo pushing to $tag
 
     docker tag next $tag
-    docker push $tag
+    # docker push $tag
 done
 
 sed -i '1s/.*/FROM ubuntu:22.04/' "$dockerfile"
