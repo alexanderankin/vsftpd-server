@@ -18,4 +18,8 @@ this restricts the passive port range.
 
 see `FTP_PASV_MAX_PORT`.
 
+### `FTP_PASV_ADDRESS`
+
+defaults to `127.0.0.1` - this is what gets sent in the `PASV` response.
+
 ### `FTP_USER`/`FTP_PASS`

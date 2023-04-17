@@ -3,6 +3,7 @@
 if [[ ! -z ${FTP_CUSTOMIZATION} ]]; then
 	[[ -z ${FTP_PASV_MAX_PORT} ]] || sed -i "s/pasv_max_port.*/pasv_max_port=$FTP_PASV_MAX_PORT/" /etc/vsftpd-custom.conf
 	[[ -z ${FTP_PASV_MIN_PORT} ]] || sed -i "s/pasv_min_port.*/pasv_min_port=$FTP_PASV_MIN_PORT/" /etc/vsftpd-custom.conf
+	[[ -z ${FTP_PASV_ADDRESS} ]] || sed -i "s/pasv_address=.*/pasv_address=$FTP_PASV_ADDRESS/" /etc/vsftpd-custom.conf
 
 	[[ -z ${FTP_USER} ]] || adduser --disabled-password --gecos "" $FTP_USER > /dev/null \
 		&& echo created user \
